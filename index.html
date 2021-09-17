@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Blob Weather</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <link rel="stylesheet" href="css/jquery-jvectormap-2.0.5.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body id="myDiv">
+
+    <nav class="navbar is-transparent">
+
+        <a class="logo">Blob Weather</a>
+        <a class="search modal-button" data-target="modal" href="#">Search</a>
+        <!-- <span class="icon">
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </span> -->
+
+    </nav>
+
+    <section class="section">
+
+        <div class="container">
+            <div class="columns">
+                <div class="column">
+
+                    <div class="blob-container">
+
+                        <a class="heart active" href="#">heart</a>
+
+                        <div class="indicators-container">
+                            <span></span>
+                            <span class="active"></span>
+                            <span></span>
+                        </div>
+
+                        <div class="blob">
+                            <svg class="moving" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                                <path fill="rgba(8,189,186,1)"
+                                    d="M44.7,-57.5C49.6,-49.1,39.6,-27.2,42.2,-8C44.9,11.1,60.2,27.4,60.9,43.6C61.6,59.8,47.6,76,31.6,78C15.6,80,-2.3,67.7,-19.6,59.1C-36.8,50.5,-53.5,45.5,-62.2,34.1C-71,22.7,-71.8,4.9,-67.4,-10.4C-63,-25.8,-53.3,-38.9,-41.1,-46C-29,-53.1,-14.5,-54.3,2.7,-57.5C19.9,-60.7,39.8,-65.9,44.7,-57.5Z"
+                                    transform="translate(100 100)" />
+                            </svg>
+
+                        </div>
+
+                        <svg class="base" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" id="blobSvg">
+                            <path id="blob"
+                                d="M413,330Q342,410,235.5,435Q129,460,96,355Q63,250,95.5,144.5Q128,39,244.5,48.5Q361,58,422.5,154Q484,250,413,330Z"
+                                fill="#d1d8e0"></path>
+                        </svg>
+
+                        <div class="text-container">
+                            <h1 class="current-city"></h1>
+                            <h1 class="current-temperature"></h1>
+                            <h2 class="current-condition"></h2>
+                        </div>
+
+                    </div>
+
+                    <div class="container">
+                        <h1 class="summary"> <span>Summary:</span> It's currently partly cloudy in Tokyo, Japan and the temperature is 28°C.</h1>
+                    </div>
+
+                    <div class="columns is-mobile">
+                        <div class="column">
+                            <h1 class="feels-like">Feels Like: </h1>
+                            <h1 class="humidity">humidity: </h1>
+                        </div>
+                        <div class="column">
+                            <h1 class="cloud">Clouds:</h1>
+                            <h1 class="pressure">Pressure:</h1>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="column">
+
+                    <div class="container forecast-container">
+
+                        <div class="columns">
+                            <div class="column">
+                                <h1 class="title">7-Day Weather Forecast</h1>
+                            </div>
+                        </div>
+
+                        <div class="daily-container">
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <div class="modal modal-search">
+        <div class="modal-background"></div>
+        <div class="modal-content">
+            <div class="container">
+                <h1 class="title">Add a location</h1>
+                <input class="input city-name" type="text" placeholder="Type city name">
+            </div>
+        </div>
+        <button class="modal-close is-large" aria-label="close"></button>
+    </div>
+
+    <script src="js/jquery-1.8.2.js"></script>
+    <script src="js/script.js"></script>
+
+</body>
+
+</html>
