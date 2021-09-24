@@ -7,19 +7,29 @@
     <title>Blob Weather</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
-    <link rel="stylesheet" href="css/jquery-jvectormap-2.0.5.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
 
-<body id="myDiv">
+<body id="myDiv" class="--loading">
 
     <nav class="navbar is-transparent">
 
         <a class="logo">Blob Weather</a>
-        <a class="search modal-button" data-target="modal" href="#">Search</a>
-        <!-- <span class="icon">
-            <i class="fa-solid fa-magnifying-glass"></i>
-        </span> -->
+        <a class="search modal-button" data-target="modal" href="#">
+            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="24" height="24" viewBox="0 0 172 172" style=" fill:#000000;">
+                <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt"
+                    stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0"
+                    font-family="none" font-weight="none" font-size="none" text-anchor="none"
+                    style="mix-blend-mode: normal">
+                    <path d="M0,172v-172h172v172z" fill="none"></path>
+                    <g fill="#d3d3d3">
+                        <path
+                            d="M72.24,10.32c-32.33062,0 -58.48,26.14938 -58.48,58.48c0,32.33063 26.14938,58.48 58.48,58.48c11.54281,0 22.22563,-3.38625 31.2825,-9.1375l42.2475,42.2475l14.62,-14.62l-41.71,-41.6025c7.49813,-9.83625 12.04,-22.02406 12.04,-35.3675c0,-32.33062 -26.14937,-58.48 -58.48,-58.48zM72.24,24.08c24.76531,0 44.72,19.95469 44.72,44.72c0,24.76531 -19.95469,44.72 -44.72,44.72c-24.76531,0 -44.72,-19.95469 -44.72,-44.72c0,-24.76531 19.95469,-44.72 44.72,-44.72z">
+                        </path>
+                    </g>
+                </g>
+            </svg>
+        </a>
 
     </nav>
 
@@ -31,13 +41,21 @@
 
                     <div class="blob-container">
 
-                        <a class="heart active" href="#">heart</a>
-
-                        <div class="indicators-container">
-                            <span></span>
-                            <span class="active"></span>
-                            <span></span>
-                        </div>
+                        <a class="refresh" href="#">
+                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="24" height="24" viewBox="0 0 172 172" style=" fill:#000000;">
+                                <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt"
+                                    stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray=""
+                                    stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none"
+                                    text-anchor="none" style="mix-blend-mode: normal">
+                                    <path d="M0,172v-172h172v172z" fill="none"></path>
+                                    <g fill="#d3d3d3">
+                                        <path
+                                            d="M86,14.33333c-39.517,0 -71.66667,32.14967 -71.66667,71.66667c0,39.517 32.14967,71.66667 71.66667,71.66667c39.517,0 71.66667,-32.14967 71.66667,-71.66667h-14.33333c0,31.61217 -25.72117,57.33333 -57.33333,57.33333c-31.61217,0 -57.33333,-25.72117 -57.33333,-57.33333c0,-31.61217 25.72117,-57.33333 57.33333,-57.33333c15.8096,0 30.11952,6.45342 40.49447,16.83887l-18.99447,18.99447h50.16667v-50.16667l-21.06608,21.06608c-12.96279,-12.99449 -30.83999,-21.06608 -50.60059,-21.06608z">
+                                        </path>
+                                    </g>
+                                </g>
+                            </svg>
+                        </a>
 
                         <div class="blob">
                             <svg class="moving" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
@@ -48,11 +66,7 @@
 
                         </div>
 
-                        <svg class="base" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" id="blobSvg">
-                            <path id="blob"
-                                d="M413,330Q342,410,235.5,435Q129,460,96,355Q63,250,95.5,144.5Q128,39,244.5,48.5Q361,58,422.5,154Q484,250,413,330Z"
-                                fill="#d1d8e0"></path>
-                        </svg>
+                        <div class="base"></div>
 
                         <div class="text-container">
                             <h1 class="current-city"></h1>
@@ -66,14 +80,14 @@
                         <h1 class="summary"> <span>Summary:</span> It's currently partly cloudy in Tokyo, Japan and the temperature is 28°C.</h1>
                     </div>
 
-                    <div class="columns is-mobile">
+                    <div class="additional columns is-mobile">
                         <div class="column">
                             <h1 class="feels-like">Feels Like: </h1>
-                            <h1 class="humidity">humidity: </h1>
+                            <h1 class="precipitation">Precipitation: </h1>
                         </div>
                         <div class="column">
+                            <h1 class="uv">UV:</h1>
                             <h1 class="cloud">Clouds:</h1>
-                            <h1 class="pressure">Pressure:</h1>
                         </div>
                     </div>
 
@@ -83,10 +97,8 @@
 
                     <div class="container forecast-container">
 
-                        <div class="columns">
-                            <div class="column">
-                                <h1 class="title">7-Day Weather Forecast</h1>
-                            </div>
+                        <div class="hourly-container">
+
                         </div>
 
                         <div class="daily-container">
@@ -105,15 +117,39 @@
         <div class="modal-background"></div>
         <div class="modal-content">
             <div class="container">
-                <h1 class="title">Add a location</h1>
+                <h1 class="title">Search a location</h1>
+                <h2 class="warning hidden">Oh no! We did not find that location.
+                    <br> Try checking your spelling or type another location.
+                </h2>
                 <input class="input city-name" type="text" placeholder="Type city name">
             </div>
         </div>
         <button class="modal-close is-large" aria-label="close"></button>
     </div>
 
+    <div class="modal modal-bookmark">
+        <div class="modal-background"></div>
+        <div class="modal-content">
+            <div class="container">
+                <h1 class="title">Do you want to delete bookmark?</h1>
+                <a class="button is-danger yes-btn">Yes</a>
+                <a class="button is-dark no-btn">No</a>
+            </div>
+        </div>
+        <button class="modal-close is-large" aria-label="close"></button>
+    </div>
+
+    <footer class="footer">
+        <div class="content has-text-centered">
+            <p>
+                <strong>Blob Weather</strong> is built with Bulma and powered by Weatherbit.
+            </p>
+        </div>
+    </footer>
+
     <script src="js/jquery-1.8.2.js"></script>
     <script src="js/script.js"></script>
+    <!-- <script src="js/generateBlob.js"></script> -->
 
 </body>
 
