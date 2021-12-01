@@ -1,4 +1,4 @@
-const key = 'd728f497d1c84989b22a5d7e9600e402';
+const key = 'bd03da581d3d4be29f4066339e6047fd';
 var currCity = '';
 
 // Main Functions
